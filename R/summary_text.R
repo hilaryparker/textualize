@@ -20,4 +20,9 @@ summary_text <- function(test){
   return(stmt)
   
   # figure out how to make [1] go away.
+  # todo: flesh out for one sample prop test
+  # then add two sample prop test
+  # then do one sample t-test
+  # then two-sample t-text
+  # will need to distinguish between these (maybe by header?)
 }
