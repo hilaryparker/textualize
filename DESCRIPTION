@@ -1,8 +1,10 @@
 Package: textualize
 Title: Textualize test results
 Version: 0.1
-Authors@R: “Hilary Parker <hilary@etsy.com> [aut, cre]"
-Description: This package creates summary paragraphs for common hypothesis tests such as the t-test or proportion test.
-Depends: R (>= 3.0.2)
+Authors@R: "Hilary Parker <hilary@etsy.com> [aut, cre]"
+Description: This package creates summary paragraphs for common hypothesis
+    tests such as the t-test or proportion test.
+Depends:
+    R (>= 3.0.2)
 License: GPL-3
 LazyData: true
