@@ -26,11 +26,11 @@ summary_text <- function(test, alpha=0.05){
     prettyNum(unlist(strsplit(unlist(strsplit(tmp$data.name, ","))[1], " "))[4], big.mark=","),
     '. 
 
-    The confidence interval for this test is (',
+    The confidence interval for the true population proportion is (',
     test$conf.int[1],
     ', ',
     test$conf.int[2],
-    '). 95 times out of 100, this interval will contain the true population proportion.
+    '). That is, 95 times out of 100, this interval will contain the true population proportion.
         
     The p-value for this test is ',
     test$p.value,
