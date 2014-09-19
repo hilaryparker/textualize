@@ -1,4 +1,8 @@
-tmp <- prop.test(x=500, n=1008)
+tmp <- prop.test(x=500, n=1008, correct=FALSE)
+summary_text(tmp)
+
+
+unlist(strsplit(tmp$data.name, ","))
 
 tmp$statistic  
 tmp$parameter	

@@ -5,18 +5,34 @@
 #' @export
 #' @examples
 #' summary_text(prop.test(x = 500,n = 1005))
-summary_text <- function(test){
+summary_text <- function(test, alpha=0.05){
   stmt <- NULL
   
   stmt <- paste0(
-    "This was a ",
-    test$method,
-    " testing against the null hypothesis that the true population proportion is equal to ",
+    "This was a one-sample proportion test of the null hypothesis that the true population proportion is equal to ",
     test$null.value,
-    ". The number of observations is ",
-    test$data.name,
-    '.
-    
+    ". Using a significance cut-off of ",
+    alpha,
+    ", we ",
+    if (test$p.value < alpha) {
+      "reject the null hypothesis, and conclude that the true population proportion is different than ",
+      test$null.value,
+    } else {
+      "do not reject the null hypothesis, and cannot conclude that the true population proportion is different than ",
+      test$null.value,
+    }
+    ". The observed number of events is ",
+    prettyNum(unlist(strsplit(tmp$data.name, " "))[1], big.mark=","),
+    ", out of a total sample size of ",
+    prettyNum(unlist(strsplit(unlist(strsplit(tmp$data.name, ","))[1], " "))[4], big.mark=","),
+    '. 
+
+    The confidence interval for this test is (',
+    test$conf.int[1],
+    ', ',
+    test$conf.int[2],
+    '). 95 times out of 100, this interval will contain the true population proportion.
+        
     The p-value for this test is ',
     test$p.value,
     '. This, formally, is defined as the probability of observing a sample proportion that is as or more extreme than the observed sample proportion, assuming that the null hypothesis is true. In this case, this is the probability of observing a sample proportion that is greater than ',
