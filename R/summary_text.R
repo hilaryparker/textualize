@@ -15,12 +15,11 @@ summary_text <- function(test, alpha=0.05){
     alpha,
     ", we ",
     if (test$p.value < alpha) {
-      "reject the null hypothesis, and conclude that the true population proportion is different than ",
-      test$null.value,
+      "reject the null hypothesis, and conclude that the true population proportion is different than "
     } else {
-      "do not reject the null hypothesis, and cannot conclude that the true population proportion is different than ",
-      test$null.value,
+      "do not reject the null hypothesis, and cannot conclude that the true population proportion is different than "
     }
+    ,test$null.value,
     ". The observed number of events is ",
     prettyNum(unlist(strsplit(tmp$data.name, " "))[1], big.mark=","),
     ", out of a total sample size of ",
