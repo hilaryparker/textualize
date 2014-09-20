@@ -3,7 +3,7 @@
 \alias{summary_text}
 \title{Summary Text}
 \usage{
-summary_text(test)
+summary_text(test, alpha = 0.05)
 }
 \arguments{
 \item{test}{htest object that you want to summarize}

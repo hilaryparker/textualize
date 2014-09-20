@@ -24,14 +24,12 @@ summary_text <- function(test, alpha=0.05){
     prettyNum(unlist(strsplit(tmp$data.name, " "))[1], big.mark=","),
     ", out of a total sample size of ",
     prettyNum(unlist(strsplit(unlist(strsplit(tmp$data.name, ","))[1], " "))[4], big.mark=","),
-    '. 
-
+    '. \n
     The confidence interval for the true population proportion is (',
     test$conf.int[1],
     ', ',
     test$conf.int[2],
-    '). That is, 95 times out of 100, this interval will contain the true population proportion.
-        
+    '). That is, 95 times out of 100, this interval will contain the true population proportion. \n        
     The p-value for this test is ',
     test$p.value,
     '. This, formally, is defined as the probability of observing a sample proportion that is as or more extreme than the observed sample proportion, assuming that the null hypothesis is true. In this case, this is the probability of observing a sample proportion that is greater than ',
@@ -45,7 +43,7 @@ summary_text <- function(test, alpha=0.05){
     '. A common cutoff convention is a p-value of less than 0.05.'
   )
   
-  return(stmt)
+  return(cat(stmt))
   
   # figure out how to make [1] go away.
   # todo: flesh out for one sample prop test
