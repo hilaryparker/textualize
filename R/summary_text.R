@@ -7,6 +7,9 @@
 #' @examples
 #' summary_text(prop.test(x = 500,n = 1005))
 summary_text <- function(test, alpha=0.05){
+  
+  if (class(test) != "htest") stop("Not a hypothesis test (htest) object.")
+  
   stmt <- NULL
   onesamp <- TRUE  
   if (length(test$estimate) == 2) onesamp <- FALSE
