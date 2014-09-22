@@ -3,6 +3,7 @@
 #' This function creates summary paragraphs for htest (hypothesis test) objects.
 #' @param test htest object that you want to summarize
 #' @export
+#' @importFrom dplyr %>%
 #' @examples
 #' summary_text(prop.test(x = 500,n = 1005))
 summary_text <- function(test, alpha=0.05){
