@@ -8,7 +8,7 @@
 #' summary_text(prop.test(x = 500,n = 1005))
 summary_text <- function(test, alpha=0.05){
   
-  if (class(test) != "htest") stop("Not a hypothesis test (htest) object.")
+  if (class(test) != "htest") stop ("Not a hypothesis test (htest) object.")
   
   stmt <- NULL
   onesamp <- TRUE  
@@ -109,13 +109,23 @@ summary_text <- function(test, alpha=0.05){
 
 
   
+  
+  stmt <- paste0(stmt, "\n\nThe confidence interval for the ")
+
+  if(onesamp == TRUE) stmt <- paste0(stmt, "true population proportion")
+  if(onesamp == FALSE) stmt <- paste0(stmt, "true difference in population proportions")
+
+  stmt <- paste0(
+    stmt, "is (",
+    test$conf.int[1], ', ', test$conf.int[2], '). That is, 95 times out of 100, ',
+    "this interval will contain the "
+  )
+
+  if(onesamp == TRUE) stmt <- paste0(stmt, "true population proportion.")
+  if(onesamp == FALSE) stmt <- paste0(stmt, "true difference in population proportions.")
+
 #### need to two-samp-ify below here
   
-  stmt <- paste0(
-    stmt, "\n\nThe confidence interval for the true population proportion is (",
-    test$conf.int[1], ', ', test$conf.int[2], '). That is, 95 times out of 100, ',
-    "this interval will contain the true population proportion."
-  )
   ################################################################################
   stmt <- paste0(
     stmt, '\n\nThe p-value for this test is ', test$p.value, '. This, formally',
