@@ -13,6 +13,9 @@ summary_text <- function(test, alpha=0.05){
   stmt <- NULL
   onesamp <- TRUE  
   if (length(test$estimate) == 2) onesamp <- FALSE
+  
+  
+  # make description paragraph ----------------------------------------------
 
   if (onesamp == TRUE) {
     stmt <- paste0(
@@ -108,7 +111,7 @@ summary_text <- function(test, alpha=0.05){
   }
 
 
-  
+  # make CI paragraph ---------------------------------------------------------
   
   stmt <- paste0(stmt, "\n\nThe confidence interval for the ")
 
@@ -125,6 +128,8 @@ summary_text <- function(test, alpha=0.05){
   if(onesamp == FALSE) stmt <- paste0(stmt, "true difference in population proportions.")
 
 #### need to two-samp-ify below here
+
+  # make hypothesis test paragraph ---------------------------------------------
   
   ################################################################################
   stmt <- paste0(
